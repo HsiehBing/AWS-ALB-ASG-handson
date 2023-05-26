@@ -1,6 +1,6 @@
 
 ## 說明：這是在練習在AWS中設定Applicaiton load balancer跟auto scaling group ，會提及當中有些設定，並說明遇到的問題以及解決方式
-### 更新日期2023/5/25
+### 更新日期2023/5/26
 
 ## Application Load Balancer設定
 
@@ -50,7 +50,8 @@ sudo yum install stress -y
 ```
 stress -c 4
 ```
-*
+## 刪除資料
+依序刪除ASG -> Target Group -> Load Balancer -> Launch Template
 
 ### 附件 網頁測試
 ```
