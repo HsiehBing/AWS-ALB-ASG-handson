@@ -11,6 +11,7 @@
 
 ### target group建立
 * 選擇instance
+* 輸入Target group name
 * Register targets
 
 ## Auto Scaling group
@@ -21,7 +22,7 @@
 3.subnet?
 4.加上user data(附件)
 
-* 選擇VPC AZ
+* 選擇VPC AZ 與 Load Balancer相同
 * Attach to an existing load balancer
 加入上方製作的applicaiton load balancer
 * Health check 開啟
@@ -34,18 +35,17 @@
 3. Dynamic scaling policies 設定條件(simple step target)
 
 
-
 ## status check
 * 在Auto Scaling group 的Activity可以看Activity Hsitory 查看EC2是否有啟動
 * 在Target groups 查看target可以看到開啟的instance
-*
-*
+
+* 設定完後可在Load Balancer介面中的details DNS name 測試建立結果
 
 ## 壓力測試
 * key word: install stress amazon linux 2
 ```
 sudo amazon-linux-extras install epel -y
-sudo yum isntall stress -y
+sudo yum install stress -y
 ```
 ```
 stress -c 4
@@ -64,3 +64,10 @@ systemctl enable httpd
 echo "<h1>Hello World from $(hostname -f)</h1>">/var/www/html/index.html
 
 ```
+
+### 有啟用的設定(如果要清理)
+1. Applicaiton Load Balancer
+2. Auto Scaling Gorup
+3. Target Group
+4. Launch template
+
