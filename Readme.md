@@ -1,6 +1,7 @@
 
-## 說明：這是在練習在AWS中設定Applicaiton load balancer跟auto scaling group ，會提及當中有些設定，並說明遇到的問題以及解決方式
-### 更新日期2023/5/26
+## 說明：這是在練習在AWS中設定Applicaiton load balancer跟auto scaling group ，會提及當中有些設定，並說明遇到的問題以及解決方式。
+後續增加WAF設定以及S3連線並且由Athena查詢log，此部分會直接加在文末
+### 更新日期2023/5/30
 
 ## Application Load Balancer設定
 
@@ -50,6 +51,26 @@ sudo yum install stress -y
 ```
 stress -c 4
 ```
+
+## WAF、S3、Athena
+
+### WAF建立
+* 進入WAF 點選Create web ACL
+**注意Region**
+* 選擇要使用CloudFront或者其他Region resource 
+* 如果練習可以預設全部開
+### S3串接
+* 到WAF頁面選擇Logging and metrics 
+* 選擇Enable
+* 建立S3 bucket，名稱必須為"aws-waf-logs-"開頭
+* 建立後可以至S3查看該資料夾
+
+### Athena查詢
+
+
+
+
+
 ## 刪除資料
 依序刪除ASG -> Target Group -> Load Balancer -> Launch Template
 
